@@ -36,20 +36,20 @@ interface Options {
   readonly gasPrice: GasPrice,
 }
 
-const pebblenetOptions: Options = {
-  httpUrl: 'https://rpc.pebblenet.cosmwasm.com',
-  networkId: 'pebblenet-1',
+const cliffnetOptions: Options = {
+  httpUrl: 'https://rpc.cliffnet.cosmwasm.com',
+  networkId: 'cliffnet-1',
   bech32prefix: 'wasm',
   feeToken: 'upebble',
-  faucetUrl: 'https://faucet.pebblenet.cosmwasm.com/credit',
+  faucetUrl: 'https://faucet.cliffnet.cosmwasm.com/credit',
   hdPath: makeCosmoshubPath(0),
-  defaultKeyFile: path.join(process.env.HOME, ".pebblenet.key"),
+  defaultKeyFile: path.join(process.env.HOME, ".cliffnet.key"),
   fees: {
     upload: 1500000,
     init: 500000,
     exec: 200000,
   },
-  gasPrice: GasPrice.fromString("0.01upebble"),
+  gasPrice: GasPrice.fromString("0.025upebble"),
 }
 
 const uniOptions: Options = {
