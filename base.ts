@@ -45,9 +45,9 @@ const cliffnetOptions: Options = {
   hdPath: makeCosmoshubPath(0),
   defaultKeyFile: path.join(process.env.HOME, ".cliffnet.key"),
   fees: {
-    upload: 1500000,
-    init: 500000,
-    exec: 200000,
+    upload: 2500000,
+    init: 1000000,
+    exec: 500000,
   },
   gasPrice: GasPrice.fromString("0.025upebble"),
 }
