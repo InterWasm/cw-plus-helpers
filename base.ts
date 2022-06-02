@@ -9,13 +9,13 @@ import path from "path";
 /*
  * This base-helper is here to use with different helper files in contracts
  *
- * Usage: npx @cosmjs/cli@^0.26 --init https://raw.githubusercontent.com/InterWasm/cw-plus-helpers/main/base.ts
+ * Usage: npx @cosmjs/cli@^0.28.1 --init https://raw.githubusercontent.com/InterWasm/cw-plus-helpers/main/base.ts
  *
  * Create a client:
- *   const [addr, client] = await useOptions(pebblenetOptions).setup('password');
+ *   const [addr, client] = await useOptions(malagaOptions).setup('password');
  *
  * Get the mnemonic:
- *   await useOptions(pebblenetOptions).recoverMnemonic(password);
+ *   await useOptions(malagaOptions).recoverMnemonic(password);
  *
  * If you want to use this code inside an app, you will need several imports from https://github.com/CosmWasm/cosmjs
 */
@@ -36,20 +36,20 @@ interface Options {
   readonly gasPrice: GasPrice,
 }
 
-const cliffnetOptions: Options = {
-  httpUrl: 'https://rpc.cliffnet.cosmwasm.com',
-  networkId: 'cliffnet-1',
+const malagaOptions: Options = {
+  httpUrl: 'https://rpc.malaga-420.cosmwasm.com',
+  networkId: 'malaga-420',
   bech32prefix: 'wasm',
-  feeToken: 'upebble',
-  faucetUrl: 'https://faucet.cliffnet.cosmwasm.com/credit',
+  feeToken: 'umlg',
+  faucetUrl: 'https://faucet.malaga-420.cosmwasm.com/credit',
   hdPath: makeCosmoshubPath(0),
-  defaultKeyFile: path.join(process.env.HOME, ".cliffnet.key"),
+  defaultKeyFile: path.join(process.env.HOME, ".malaga.key"),
   fees: {
-    upload: 1500000,
-    init: 500000,
-    exec: 200000,
+    upload: 2500000,
+    init: 1000000,
+    exec: 500000,
   },
-  gasPrice: GasPrice.fromString("0.025upebble"),
+  gasPrice: GasPrice.fromString("0.025umlg"),
 }
 
 const uniOptions: Options = {
