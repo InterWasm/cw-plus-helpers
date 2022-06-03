@@ -49,7 +49,7 @@ const malagaOptions: Options = {
     init: 1000000,
     exec: 500000,
   },
-  gasPrice: GasPrice.fromString("0.025umlg"),
+  gasPrice: GasPrice.fromString("0.25umlg"),
 }
 
 const uniOptions: Options = {
