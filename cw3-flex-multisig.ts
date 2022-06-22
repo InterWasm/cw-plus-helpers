@@ -167,7 +167,7 @@ interface CW3FlexInstance {
   listVoters: (startAfter?: string, limit?: number) => Promise<VoterListResponse>
 
   // actions
-  propose: (txSigner: string, description: string, msgs: CosmosMsg[], latest?: Expiration) => Promise<string>
+  propose: (txSigner: string, title: string, description: string, msgs: CosmosMsg[], latest?: Expiration) => Promise<string>
   vote: (txSigner: string, proposalId: number, vote: string) => Promise<string>
   execute: (txSigner: string, proposalId: number) => Promise<string>
   close: (txSigner: string, proposalId: number) => Promise<string>
@@ -238,13 +238,14 @@ export const CW3Flex = (client: SigningCosmWasmClient, options: Options): CW3Fle
 
     const propose = async (
       txSigner: string,
+      title: string,
       description: string,
       msgs: CosmosMsg[],
       latest?: Expiration,
     ): Promise<string> => {
       const fee = calculateFee(options.fees.exec, options.gasPrice)
 
-      const result = await client.execute(txSigner, contractAddress, { propose: { description, msgs, latest } }, fee)
+      const result = await client.execute(txSigner, contractAddress, { propose: { title, description, msgs, latest } }, fee)
       return result.transactionHash
     }
 
